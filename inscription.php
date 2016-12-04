@@ -48,9 +48,9 @@
             <span class="form_hint">Les mots de passes doivent être égaux.</span>
             <script>
                 validateMdp2 = function(e) {
-                    var mdp1 = document.getElementById('mdp1').value;
-                    var mdp2 = document.getElementById('mdp2').value;
-                    if (mdp1==mdp2) {
+                    var mdp1 = document.getElementById('mdp1');
+                    var mdp2 = document.getElementById('mdp2');
+                    if (mdp1.validity.valid && mdp1.value==mdp2.value) {
                         // ici on supprime le message d'erreur personnalisé, et du coup mdp2 devient valide.
                         document.getElementById('mdp2').setCustomValidity('');
                     } else {
@@ -194,8 +194,9 @@
                             // Vous devez supprimer ces lignes, et modifier width et height pour:
                             //    - garder les proportions,
                             //    - et que le maximum de width et height soit égal à 96
-                            var width = MAX_WIDTH;
-                            var height = MAX_HEIGHT;
+                            var max = width > height ? width : height;
+                            width = width * MAX_WIDTH / max;
+                            height = height * MAX_HEIGHT / max;
 
                             canvas.width = width;
                             canvas.height = height;

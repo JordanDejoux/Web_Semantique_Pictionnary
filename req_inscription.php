@@ -27,6 +27,11 @@ try {
     $sql = $dbh->query("SELECT * FROM USERS WHERE email ='".$email."'");
     if ($sql->rowCount()>= 1 ) {
         header("Location: main.php?erreur=".urlencode("un problème est survenu"));
+        $temp = urlencode("un utilisateur avec cette adresse email existe déjà");
+        foreach ($_POST as $key => $value) {
+            $temp = $temp."&".$key."=".$value;
+        }
+        header("Location: inscription.php?erreur=".$temp);
         // rediriger l'utilisateur ici, avec tous les paramètres du formulaire plus le message d'erreur
         // utiliser à bon escient la méthode htmlspecialchars http://www.php.net/manual/fr/function.htmlspecialchars.php          // et/ou la méthode urlencode http://php.net/manual/fr/function.urlencode.php
     }
@@ -69,7 +74,7 @@ try {
         else
             $sql->bindValue(":profilepic", $profilepic);
 
-        $sql->bindValue(":couleur", $couleur.substring(1));
+        $sql->bindValue(":couleur", substr($couleur,1));
         if($sexe == 'H' || $sexe =='F')
             $sql->bindValue(":sexe", $sexe);
         else
@@ -100,7 +105,7 @@ try {
                 $_SESSION['profilepic'] = $sql->profilepic;
             }
 
-            header("Location: main.php?erreur=");
+            header("Location: main.php");
         }
         $dbh = null;
     }
