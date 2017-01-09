@@ -21,7 +21,8 @@
             <label for="email">E-mail :</label>
             <input type="email" name="email" id="email"
             autofocus
-            required/>
+            required
+			placeholder="name@something.com"/>
             <!-- quelle est la différence entre les attributs name et id ? name peut être utilisé en php alors que l'id est unique et pour javascript-->
             <!-- c'est lequel qui doit être égal à l'attribut for du label ? id-->
             <span class="form_hint">Format attendu "name@something.com"</span>
@@ -50,7 +51,8 @@
                 validateMdp2 = function(e) {
                     var mdp1 = document.getElementById('mdp1');
                     var mdp2 = document.getElementById('mdp2');
-                    if (mdp1.validity.valid && mdp1.value==mdp2.value) {
+					var re = /^[a-z0-9A-Z]{6,8}/;
+                    if (re.exec(mdp1.value) && mdp1.value==mdp2.value)  {
                         // ici on supprime le message d'erreur personnalisé, et du coup mdp2 devient valide.
                         document.getElementById('mdp2').setCustomValidity('');
                     } else {
