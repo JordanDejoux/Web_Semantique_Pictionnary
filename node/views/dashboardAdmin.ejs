@@ -1,0 +1,31 @@
+<% var title = 'Page de profil' %>
+<% include head %>
+
+<h1>Votre Profil</h1><br>
+Bonjour <%=prenom%>   <img src=<%=photo%> height="60" width="60">
+
+<p>Deconnexion - <a href="/deconnexion">logout</a>
+
+<p>Supprimer votre compte - <button onclick="confirmation()">Supprimer</button>
+
+                                 <script>
+                                 function confirmation() {
+                                    var r;
+                                     r = confirm("Etes vous sur de vouloir supprimer votre compte ?");
+                                     if(r){
+                                        document.location.href="\deleteCompte";
+                                     }
+                                 }
+                                 </script>
+<p><a href="/paint">Peindre</a></p>
+
+<p><a href="/modificationInfo">Modifier votre compte</a></p>
+<div>
+    <% for(var i = 0 ; i < result.length ; i++) { %>
+        <img src=<%= result[i].images %> />
+        Mot à trouvé : <%=result[i].mot%>
+        Mot trouvé : <%=result[i].reponse%>
+    <% } %>
+</div>
+
+<% include foot %>
