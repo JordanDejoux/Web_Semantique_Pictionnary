@@ -33,10 +33,7 @@ app.get('/login', function(req, res){
 });
 
 app.get('/inscription', function(req, res){
-    if(sess.valid)
         res.render('inscription');
-    else
-        res.redirect("/login");
 });
 
 app.get('/deconnexion',function(req, res){
