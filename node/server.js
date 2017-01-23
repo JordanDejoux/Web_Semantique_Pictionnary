@@ -13,9 +13,8 @@ app.use(express.static(__dirname + '/public')); // Indique que le dossier /publi
 
 var sess = {
     secret: 'keyboard cat'
-}
-app.use(session(sess))
-
+};
+app.use(session(sess));
 
 logger.info('server start');
 app.listen(1313);
@@ -186,7 +185,6 @@ app.get('/dashboard', function (req, res) {
                 connection.query("SELECT * from drawings WHERE email='" + sess.email + "' AND reponse is null", function (err, rows) {
                     connection.release();
                     if (!err) {
-
                         res.render('dashboard', {
                             photo: sess.profileEpic,
                             prenom: sess.prenom,
@@ -297,6 +295,9 @@ app.post('/updateInfo', function (req, res) {
     var ville = req.body.ville;
     var couleur = req.body.couleur;
     var profilepic = req.body.profilepic;
+
+    sess.profileEpic = profilepic;
+    sess.couleur = couleur;
 
     var pool =  mysql.createPool({
         connectionLimit : 100, //important

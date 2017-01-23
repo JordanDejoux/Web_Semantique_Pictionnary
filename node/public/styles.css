@@ -2,7 +2,8 @@
 *:focus {outline: none;}
 
 /* === Form Typography === */
-body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif;}
+body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", sans-serif; padding: 10px 0 0 10px}
+html{height: 100%}
 .inscription h2, .inscription label {font-family:Georgia, Times, "Times New Roman", serif;}
 .form_hint, .required_notification {font-size: 11px;}
 
@@ -146,10 +147,6 @@ body {font: 14px/21px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", san
 
 }
 
-html, body
-{
-    height: 100%;
-}
 
 body
 {
@@ -162,6 +159,7 @@ body
     background-image: -ms-linear-gradient(top, #ebeef2, #d9dee2);
     background-image: -o-linear-gradient(top, #ebeef2, #d9dee2);
     background-image: linear-gradient(top, #ebeef2, #d9dee2);
+    background-repeat: inherit;
 }
 
 
@@ -177,7 +175,7 @@ body
     background-image: -ms-linear-gradient(top, #fff, #eee);
     background-image: -o-linear-gradient(top, #fff, #eee);
     background-image: linear-gradient(top, #fff, #eee);
-    height: 240px;
+    height: 260px;
     width: 400px;
     margin: -150px 0 0 -230px;
     padding: 30px;
@@ -410,7 +408,7 @@ fieldset
      background-image: -ms-linear-gradient(top, #fff, #eee);
      background-image: -o-linear-gradient(top, #fff, #eee);
      background-image: linear-gradient(top, #fff, #eee);
-     height: 600px;
+     height: 700px;
      width: 400px;
      margin: -350px 0 0 -230px;
      padding: 30px;

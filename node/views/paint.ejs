@@ -1,5 +1,9 @@
 <% var title = 'Paint' %>
 <% include head %>
+<style>#myCanvas{
+        border-color: black;
+        border-style:solid;
+    }</style>
     <script>
         // les quatre tailles de pinceau possible.  
         var sizes=[8,20,44,90];  
@@ -125,7 +129,7 @@
 
 <form name="tools" action="\paint" method="post">
    <input type="range" id="taille" min="0" max="3" step="1" value="0"/>
-	<input type="color" id="couleur" value= '<%=couleur%>'/>
+	<input type="color" id="couleur" placeholder= <%=couleur%>/>
     <label for="destinataire">Email du destinataire</label>
     <input type="text" id="destinataire" name="destinataire"/>
 

@@ -7,14 +7,13 @@
 
         <label for="mdp1">Mot de passe :</label>
         <p><input type="password" name="password" id="mdp1" onkeyup="validateMdp2()" title = "Le mot de passe doit contenir de 6 à 8 caractères alphanumériques."
-               required
                placeholder="password"
                pattern="\w{6,8}"
 
         />
         <span class="form_hint">De 6 à 8 caractères alphanumériques.</span>
             <label for="mdp2">Confirmez mot de passe :</label>
-        <p><input type="password" id="mdp2" required onkeyup="validateMdp2()"
+        <p><input type="password" id="mdp2" onkeyup="validateMdp2()"
                    placeholder="password"/>
             <span class="form_hint">Les mots de passes doivent être égaux.</span>
             <script>
